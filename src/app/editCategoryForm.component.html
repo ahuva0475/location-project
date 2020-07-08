@@ -1,0 +1,10 @@
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">location details:</span>
+  </div>
+  <input type="text" class="form-control" [disabled]="!isEditLocation" value="{{location.name}}" [(ngModel)]="location.name" placeholder="Name">
+  <input type="text" class="form-control" [disabled]="!isEditLocation" value="{{location.address}}" [(ngModel)]="location.address" placeholder="Address">
+  <input type="text" class="form-control" [disabled]="!isEditLocation" value="{{location.coordinates.coordinateX}}" [(ngModel)]="location.coordinates.coordinateX" placeholder="CoordinateX">
+  <input type="text" class="form-control" [disabled]="!isEditLocation" value="{{location.coordinates.coordinateY}}" [(ngModel)]="location.coordinates.coordinateY" placeholder="CoordinateY">
+  <button (click)="toAddLocation()" class="btn btn-outline-primary" *ngIf="isEditLocation">keep location</button>
+</div>

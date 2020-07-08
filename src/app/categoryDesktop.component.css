@@ -1,0 +1,77 @@
+ .category-list{
+    width: 25%;
+    position: absolute;
+    background-color: #d6f5f5;
+    bottom: 0;
+    top: 0;
+  }
+  .category-items{
+    background-color: #d6f5f5;
+
+  }
+  .category-item{
+      width: 100%;
+  }
+
+  .check-category{
+      background-color: blue;
+      color: white;
+  }
+
+  .edit-category{
+    top: 30%;
+    left: 30%;
+    position: absolute;
+  }
+
+  .alert-border{
+      padding: 25px;
+  }
+
+  .order-massage{
+      display: inline-block;
+  }
+
+  .order-buttons{
+    float: right;
+  }
+  .set-button{
+     margin-right: 7px; 
+     float: right;
+  }
+  .title{
+    position: absolute;
+    left: 35%;
+    top: 15%;
+    font-size: xxx-large;
+    color: blue;
+  }
+  .ruler-actives{
+    padding: 20px;
+    color: blue;
+    font-size: 20px;
+  }
+  .border-ruler{
+    border-right: 1px solid blue;
+  }
+  .title-list-category{
+    color: blue;
+    font-size: 25px;
+    padding: 10px;
+    border: 1px solid;
+  }
+  .location-button{
+      margin-bottom: 15px;
+  }
+  .title-location{
+      width: 25%;
+      display: inline-block;
+  }
+  .titles-location{
+      width: 100%;
+      padding-left: 15%;
+  }
+  .order-title{
+    width: 22%;
+
+  }

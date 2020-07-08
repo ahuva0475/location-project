@@ -1,0 +1,53 @@
+<ul class="nav justify-content-center ruler-actives">
+    <li class="nav-item border-ruler">
+      <option class="nav-link active" (click)="toShowDetails(3)" [disabled]="!checkCategory.name">Edit</option>
+    </li>
+    <li class="nav-item border-ruler">
+      <option class="nav-link" (click)="toShowDetails(4)" [disabled]="!checkCategory.name">Delete</option>
+    </li>
+    <li class="nav-item border-ruler">
+      <option class="nav-link" (click)="toShowDetails(2)" [disabled]="!checkCategory.name">View Details</option>
+    </li>
+    <li class="nav-item border-ruler">
+      <option class="nav-link" (click)="toShowDetails(1)" >new category</option>
+    </li>
+  </ul>
+
+<div class="category-list">
+    <div class="title-list-category">List Of Categories</div>
+    <div class="list-group">
+        <div *ngFor="let category of categoryList; let i = index" class="list-group-item category-items" [ngClass]="{'check-category':category.name === checkCategory.name}"> 
+            <div (click)="toCheckCategory(i)" class="category-item">{{category.name}}</div>
+        </div>
+    </div>
+</div>
+
+        <div class="title">{{title}}</div>
+        <div class="needs-validation edit-category">
+            <div class="alert alert-success alert-border" role="alert" *ngIf="isDeleteCategory">
+                <h4 class="alert-heading">Note!</h4>
+                <p> In a category delete action, you delete the category along with all of its locations.</p>
+                <hr>
+                <p class="mb-0 order-massage">Are you sure you want to remove this category?</p>
+                <span order-buttons>
+                <button type="button" class="btn btn-outline-primary set-button" (click)="deleteCategory()">yes</button>
+                <button type="button" class="btn btn-outline-primary set-button" (click)="noDeleteCategory()">no</button>
+            </span>  
+            </div>              
+            <div class="form-row" *ngIf="isShowCategoryName">
+              <span class="mb-3">
+                <label >Category name</label>
+                <input type="text" class="form-control" placeholder="Category Name" value="{{checkCategory.name}}" [(ngModel)]="checkCategory.name" [disabled]="!isEditCategory">
+              </span>
+            </div>
+            <button type="button" class="btn btn-outline-primary" (click)="toAddCategory()" *ngIf="isEditCategory">keep</button>
+            <div *ngFor="let location of viewLocationList" class="mb-3" >
+                <div class="titles-location"><div class="title-location" [ngClass]="{'order-title': isEditLocation}">Name</div><div class="title-location" [ngClass]="{'order-title': isEditLocation}">Address</div><div class="title-location" [ngClass]="{'order-title': isEditLocation}">CoordinateX</div><div class="title-location" [ngClass]="{'order-title': isEditLocation}">CoordinatesY</div></div>
+                <editCategoryForm [location]="location" [isEditLocation]="isEditLocation" (onAddNewLocation)="toKeepLocation($event)"></editCategoryForm>
+            </div>
+            <button type="button" class="btn btn-outline-primary location-button" (click)="toAddLocation()" *ngIf="isEditLocation">add new location</button>
+            <div class="titles-location" *ngIf="isAddLocation"><div class="title-location" [ngClass]="{'order-title': isEditLocation}">Name</div><div class="title-location" [ngClass]="{'order-title': isEditLocation}">Address</div><div class="title-location" [ngClass]="{'order-title': isEditLocation}">CoordinateX</div><div class="title-location" [ngClass]="{'order-title': isEditLocation}">CoordinatesY</div></div>
+            <editCategoryForm *ngIf="isAddLocation" [isEditLocation]="isEditLocation" (onAddNewLocation)="toKeepLocation($event)"></editCategoryForm>
+  
+        </div>
+
